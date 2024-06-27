@@ -29,8 +29,12 @@ export class GiftController {
         setHTML('gift-container', innerHTMLString)
     }
 
-    openGift(giftId) {
-        giftsService.openGift(giftId)
+    async openGift(giftId) {
+        try {
+            await giftsService.openGift(giftId)
+        } catch (error) {
+            Pop.error(error);
+        }
     }
 
 }

@@ -1,7 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Gift } from "../models/Gift.js";
 import { api } from "./AxiosService.js";
-
 class GiftService {
     async getGifts() {
         console.log('🥶🥶');
@@ -11,12 +10,10 @@ class GiftService {
         AppState.gifts = gifts
     }
 
-
     async openGift(giftId) {
-        let gifts = AppState.gifts
-        const foundGift = gifts.find((gift) => gift.id == giftId)
-        foundGift.opened = true
-        console.log('🎁', foundGift.opened);
+        const opened = { opened: true }
+        const response = await api.put(`api/gifts/${giftId}`, opened)
+        console.log(response.data)
     }
 }
 
