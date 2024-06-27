@@ -10,7 +10,7 @@ export class Gift {
         return `
         <div class="col-md-3 mx-4">
             <div class="card" style="width: 18rem">
-              <img onclick="app.GiftController.openGift()" src="${this.url}" class="card-img-top" alt="..." />
+              <img onclick="app.GiftController.openGift('${this.id}')" src="${this.url}" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">${this.tag}</h5>
               </div>

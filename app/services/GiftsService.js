@@ -12,9 +12,11 @@ class GiftService {
     }
 
 
-    openGift() {
-        console.log('🎁');
-
+    async openGift(giftId) {
+        let gifts = AppState.gifts
+        const foundGift = gifts.find((gift) => gift.id == giftId)
+        foundGift.opened = true
+        console.log('🎁', foundGift.opened);
     }
 }
 

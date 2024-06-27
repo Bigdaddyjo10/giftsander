@@ -29,8 +29,8 @@ export class GiftController {
         setHTML('gift-container', innerHTMLString)
     }
 
-    openGift() {
-        giftsService.openGift()
+    openGift(giftId) {
+        giftsService.openGift(giftId)
     }
 
 }
