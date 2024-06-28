@@ -11,8 +11,12 @@ class GiftService {
     }
 
     async openGift(giftId) {
-        const opened = { opened: true }
-        const response = await api.put(`api/gifts/${giftId}`, opened)
+        const response = await api.put(`api/gifts/${giftId}`, { opened: true })
+        const openedGift = new Gift(response.data)
+        const giftIndex = AppState.gifts.findIndex(((gift) => giftId == gift.id))
+
+        AppState.gifts.splice(giftIndex, 1, openedGift)
+
         console.log(response.data)
     }
 }
